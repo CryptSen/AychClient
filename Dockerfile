@@ -1,5 +1,5 @@
 FROM ubuntu:18.04 as builder
-LABEL maintainer="contact@graphsense.info"
+LABEL maintainer="core@aych.site"
 
 ADD docker/Makefile /tmp/Makefile
 RUN apt-get update && \
@@ -21,11 +21,11 @@ RUN apt-get update && \
         wget && \
     cd /tmp && \
     make install && \
-    strip /usr/local/bin/*litecoin*
+    strip /usr/local/bin/*aych*
 
 FROM ubuntu:18.04
 
-COPY --from=builder /usr/local/bin/*litecoin* /usr/local/bin/
+COPY --from=builder /usr/local/bin/*aych* /usr/local/bin/
 
 RUN useradd -r -u 10000 dockeruser && \
     mkdir -p /opt/graphsense/data && \
@@ -43,10 +43,10 @@ RUN useradd -r -u 10000 dockeruser && \
         libminiupnpc10 \
         libssl1.1
 
-ADD docker/litecoin.conf /opt/graphsense/litecoin.conf
+ADD docker/aych.conf /opt/crytsen/aych.conf
 
 USER dockeruser
 EXPOSE 8532
 
 CMD bash
-CMD litecoind -conf=/opt/graphsense/litecoin.conf -datadir=/opt/graphsense/data -daemon -rest && bash
+CMD aychd -conf=/opt/cryptsen/aych.conf -datadir=/opt/cryptsen/data -daemon -rest && bash
