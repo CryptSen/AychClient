@@ -1,6 +1,6 @@
-# Litecoin Docker container
+# AYCH Docker container
 
-A Docker container running [Litecoin][litecoin] as a service and
+A Docker container running [AYCH][aych] as a service and
 exposing the REST API.
 
 ## Prerequisites
@@ -17,7 +17,7 @@ Ensure that a user `dockeruser` with ID `10000` exists on your local system.
 
 ## Configuration
 
-Modify `docker/litecoin.conf` according to your environment. 
+Modify `docker/aych.conf` according to your environment. 
 Configure `rpcallowip=...` to allow the client/daemon to accept
 RPC connections outside the localhost and set an RPC username (`rpcuser`)
 and password (`rpcpassword`).
@@ -45,6 +45,6 @@ Showing the debug.log file:
     ./docker/show_log.sh
 
 
-[litecoin]: https://litecoin.org
+[aych]: https://aych.site
 [docker]: https://www.docker.com
 [homebrew]: https://brew.sh
