@@ -5,14 +5,14 @@ if ! [ -n "$1" ] ; then
     exit 1
 fi
 
-docker stop litecoin
-docker rm litecoin
+docker stop aych
+docker rm aych
 
 chown -R dockeruser "$1"
 
-docker run --restart=always -d --name litecoin \
+docker run --restart=always -d --name aych \
     --cap-drop all \
     -p 8532:8532 \
-    -v "$1":/opt/graphsense/data \
-    -it litecoin
+    -v "$1":/opt/cryptsen/data \
+    -it aych
 docker ps -a
