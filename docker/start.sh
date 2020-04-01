@@ -14,5 +14,5 @@ docker run --restart=always -d --name aych \
     --cap-drop all \
     -p 8532:8532 \
     -v "$1":/opt/graphsense/data \
-    -it litecoin
+    -it aych
 docker ps -a
